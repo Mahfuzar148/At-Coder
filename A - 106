@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    long long n;
+    cin>>n;
+    long long c1=0,c2=0,m1=1,m2=1;
+    bool b1=true;
+    for(int i=1;i<=38;i++)
+        {
+            m1 = (m1*3);
+            c1++;
+                for(int j=1;j<=26;j++)
+                {
+                    c2++;
+                    m2 = (m2*5);
+                    if((long long)m1+m2==n)
+                    {
+                        b1 = false;
+                        break;
+                    }
+                    if((long long)m1+m2>n)
+                    {
+                        m2 = 1;
+                        c2=0;
+                    }
+                }
+                if(b1==false)
+                {
+                    break;
+                }
+        }
+        if(b1==false)
+        {
+            cout<<c1<<" "<<c2<<endl;
+        }
+        else
+        {
+            cout<<-1<<endl;
+        }
+
+
+}
